@@ -1,52 +1,36 @@
-import './Hero.css';
-import Carousel from 'react-material-ui-carousel';
-import { Paper } from '@mui/material';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCirclePlay } from '@fortawesome/free-solid-svg-icons';
-import {Link, useNavigate} from "react-router-dom";
-import Button from 'react-bootstrap/Button';
-
 
 const Hero = ({movies}) => {
   return (
-    <div className ='movie-carousel-container'>
-      <div> hi </div>
-      <Carousel>
-        {
-            movies?.map((movie) =>{
-                return(
-                    <Paper key={movie.imdbId}>
-                        <div className='movie-card-container'>
-                            <div className="movie-card">
-                                <div className="movie-detail">
-                                    <div className="movie-poster">
-                                        <img src={movie.poster} alt="" />
-                                    </div>
-                                    <div className="movie-title">
-                                        <h4>{movie.title}</h4>
-                                    </div>
-                                    <div className="movie-buttons-container">
-                                        <Link to={`/Trailer/${movie.trailerLink.substring(movie.trailerLink.length - 11)}`}>
-                                            <div className="play-button-icon-container">
-                                                <FontAwesomeIcon className="play-button-icon"
-                                                    icon = {faCirclePlay}
-                                                />
-                                            </div>
-                                        </Link>
-
-                                        <div className="movie-review-button-container">
-                                            <Button variant ="info" onClick={() => reviews(movie.imdbId)} >Reviews</Button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </Paper>
-                )
-            })
-        }
-      </Carousel>
-    </div>
+    <div className="carousel w-full bg-red-50 h-screen">
+        <div id="slide1" className="carousel-item relative w-full">
+            <img src="https://daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg" className="w-full" />
+            <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            <a href="#slide4" className="btn btn-circle">left</a> 
+            <a href="#slide2" className="btn btn-circle">right</a>
+            </div>
+        </div> 
+        <div id="slide2" className="carousel-item relative w-full">
+            <img src="https://daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.jpg" className="w-full" />
+            <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            <a href="#slide1" className="btn btn-circle">left</a> 
+            <a href="#slide3" className="btn btn-circle">right</a>
+            </div>
+        </div> 
+        <div id="slide3" className="carousel-item relative w-full">
+            <img src="https://daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg" className="w-full" />
+            <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            <a href="#slide2" className="btn btn-circle">left</a> 
+            <a href="#slide4" className="btn btn-circle">right</a>
+            </div>
+        </div> 
+        <div id="slide4" className="carousel-item relative w-full">
+            <img src="https://daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.jpg" className="w-full" />
+            <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            <a href="#slide3" className="btn btn-circle">❮</a> 
+            <a href="#slide1" className="btn btn-circle">❯</a>
+            </div>
+        </div>
+        </div>
   )
 }
 

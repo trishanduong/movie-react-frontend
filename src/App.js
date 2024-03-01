@@ -1,9 +1,8 @@
-import './App.css';
+
 import api from "./api/axiosConfig";
 
 import { useEffect, useState } from 'react';
 import { Route, Routes } from "react-router-dom"; 
-
 
 import Home from './components/home/Home.js';
 import Layout from "./components/Layout";
@@ -17,7 +16,7 @@ function App() {
       console.log(response.data); 
       setMovies(response.body);
 
-    } catch(error) {
+    } catch(error) { 
       console.log(error);
     }
   };
@@ -25,11 +24,11 @@ function App() {
   useEffect(() => {
     getMovies(); 
   }, []); 
-
+ 
   return (
     <div className="App"> 
       <Routes>
-        <Route path="/" element={<Layout />} >
+        <Route path="/" element={ <Layout/> } >
           <Route path="/" element={<Home movies={movies} />} />
         </Route> 
       </Routes>
